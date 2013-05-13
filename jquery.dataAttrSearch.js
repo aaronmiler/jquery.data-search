@@ -1,4 +1,5 @@
 (function($) {
+  
   $.fn.dataAttrSearch = function(attribute,searchBtn,clearBtn,status) {
     var config = {}
     var $timer
