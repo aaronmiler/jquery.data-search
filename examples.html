@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data Attribute Search Example</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="jquery.dataAttrSearch.js"></script>
+</head>
+<body>
+<div style="width:45%;padding:2.5%;float:left">	
+	<h1>jQuery Data Attribute Search</h1>
+	<p>This jQuery plugin allows you to search a page based on tags provided in a data attribute.</p>
+	<p>This plugin gets called on an input elemnt type of text, and here is the syntax.</p>
+	<blockquote><code>$("element").dataAttrSearch(Data,Search,Clear,Status)</code></blockquote>
+	<p>Data - Type: String<br/>
+	Pass the data attribute you'd like to search, can pass either the whole name 'data-tags' or just the name of the data attribute 'tags'<br/>
+	Defaults to: tags
+	</p>
+	<p>Search - Type: Boolean<br/>
+	Determine weither or not you'd like the search button to be added to the element<br/>
+	Defaults to: false
+	</p>
+	<p>Clear - Type: Boolean<br/>
+	Determine weither or not you'd like the clear button to be added to the element<br/>
+	Defaults to: false
+	</p>
+	<p>Status - Type: Boolean<br/>
+	Determine weither or not you'd like the status of the search to be shown<br/>
+	Example: Search Reuturned 1 out of 13 <br/>
+	Defaults to: false
+	</p>
+	<p>Below you will find examples of options provided with the plugin.</p>
+	<h3>Default Options</h3>
+	<p>This will generate a search box with no buttons, that will by default search the data attribute 'tags'</p>
+	<blockquote><code>$('input.none').dataAttrSearch()</code></blockquote>
+	<input class="none" type="text"/>
+
+	<h3>Search Button Enabled</h3>
+	<p>This will generate a search box with a search button, that will by default search the data attribute 'tags'</p>
+	<blockquote><code>$('input.search').dataAttrSearch(null,false)</code></blockquote>
+	<input class="search" type="text"/>
+
+	<h3>Clear Button Enabled</h3>
+	<p>This will generate a search box with a clear button, that will by default search the data attribute 'tags'</p>
+	<blockquote><code>$('input.search').dataAttrSearch(null,false,true)</code></blockquote>
+	<input class="clearsearch" type="text"/>
+
+	<h3>All Options Enabled</h3>
+	<p>This will generate a search box with a search button, a clear button, and will display the results status. Passed no paramters for the data attribute it will search 'tags' by default.</p>
+	<blockquote><code>$('input.all').dataAttrSearch(null,true,true,true)</code></blockquote>
+	<input class="all" type="text"/>
+
+	<h3>Custom Data Attribute</h3>
+	<p>This will search the specified data attribute, rather than the default of tags.</p>
+	<blockquote><code>$('input.all').dataAttrSearch('potato')</code></blockquote>
+	<input type="text" class="custom"/>
+
+</div>
+<div style="width:45%;padding:2.5%;position:fixed;right:0;top:0">	
+	<h2>Data Attribute: Tags</h2>
+	<div data-tags="tags hello world">
+		<h3>This div's tags are 'tags, hello, world'</h3>
+	</div>
+	<div data-tags="sky blue tree">
+		<h3>This div's tags are 'sky blue tree'</h3>
+	</div>
+	<div data-tags="hello blue turtle">
+		<h3>This div's tags are 'hello blue turtle'</h3>
+	</div>
+	<div data-tags="turtle world red">
+		<h3>This div's tags are 'turtle world red'</h3>
+	</div>
+	<h2>Data Attribute: Potato</h2>
+	<div data-potato="tags hello world">
+		<h3>This div's tags are 'tags, hello, world'</h3>
+	</div>
+	<div data-potato="sky blue tree">
+		<h3>This div's tags are 'sky blue tree'</h3>
+	</div>
+	<div data-potato="hello blue turtle">
+		<h3>This div's tags are 'hello blue turtle'</h3>
+	</div>
+	<div data-potato="turtle world red">
+		<h3>This div's tags are 'turtle world red'</h3>
+	</div>
+</div>
+
+	<script>
+		$('input.none').dataAttrSearch()
+		$('input.clearsearch').dataAttrSearch(null,false,true)
+		$('input.all').dataAttrSearch(null,true,true,true)
+		$('input.clear').dataAttrSearch(null,false,true)
+		$('input.search').dataAttrSearch(null,true)
+		$('input.custom').dataAttrSearch('potato')
+	</script>
+</body>
+</html>
