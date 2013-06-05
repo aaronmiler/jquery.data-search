@@ -21,7 +21,7 @@
           $wrap.append(_clearButton($box))
         }
         if (status == true){
-          $wrap.append('<p style="display:none" class="searchStatus">Search Reuturned <span class="resultCount"></span> out of '+$('[data-'+dataAttr+']').length+'</p>')
+          $wrap.append('<p style="display:none" class="searchStatus">Search Returned <span class="resultCount"></span> out of '+$('[data-'+dataAttr+']').length+'</p>')
         }
         $box.on('keyup',function(){
           var $self = $(this)
