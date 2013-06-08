@@ -1,15 +1,15 @@
 (function($) {
-  
+  if(typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g, ''); 
+    }
+  }
   $.fn.dataAttrSearch = function(attribute,searchBtn,clearBtn,status) {
     var config = {}
     var $timer
     var $common = 'the, it is, we, all, a, an, by, to, you, me, he, do, she, they, we, how, it, i, are, to, for, of'
-    if (attribute){
-      var dataAttr = attribute.replace('data-','')
-    }
-    else {
-      var dataAttr = 'tags'
-    }
+
+    var dataAttr = attribute.replace('data-','')
     this.each(function() { 
         var $box = $(this)
         $box.wrap('<div/>')
@@ -44,6 +44,8 @@
       var results = 0
       $("[data-"+dataAttr+"]").each(function(){
         var tags = $(this).attr('data-'+dataAttr).replace('-',' ').replace(/[^a-zA-Z ]/g, "").split(' ')
+        $self = $(this)
+        console.log(tags)
         var match = false
           for (var i = 0; i < input.length; i++) {
             var reg = _makeRegExp(input[i])
@@ -54,11 +56,11 @@
             }
           }
           if (match == true) {
-            $(this).show()
+            $self.show()
             results ++
           }
           else {
-            $(this).hide()
+            $self.hide()
           }
       })
       $('.resultCount').text(results)
